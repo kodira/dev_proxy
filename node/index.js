@@ -75,7 +75,7 @@ function log(proxyErr, err, req, res) {
         req_headers: req.headers,
         req_body: parse(req.fullBody),
         res_code: res.statusCode,
-        res_headers: res.headers,
+        res_headers: res._headers,
         res_body: parse(req.resbody)
     });
 
