@@ -64,8 +64,8 @@ An log entry contains:
 	"req_method" : the request method, e.g. 'GET' or 'POST'
 	"req_headers" : the request headers
 	"req_body" : the request body if any
-	"res_code" : the result code
-	"res_body" : the result body if any
+	"res_code" : the response code
+	"res_body" : the response body if any
 }
 ```
 
