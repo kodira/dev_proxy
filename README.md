@@ -13,7 +13,6 @@ To install the proxy
 git clone https://github.com/kodira/dev_proxy.git
 cd dev_proxy/node/
 npm install
-node index.js
 ```
 
 CONFIGURATION
