@@ -46,6 +46,7 @@ To see all logged request, open your mongo shell, and connect to the database ``
 E.g.:
 
 ```
+mongo
 > use proxy
 > db.entries.find().pretty()
 ````
