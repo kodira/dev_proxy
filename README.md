@@ -50,22 +50,21 @@ E.g.:
 > db.entries.find().pretty()
 ````
 
-should give you 
+An log entry contains:
 
 
 ```
 {
-	"_id" : ObjectId("546a25ad3eb52efb56f76518"),
-	"start" : ISODate("2014-11-17T16:43:24.974Z"),
-	"stop" : ISODate("2014-11-17T16:43:25.645Z"),
-	"error" : "null",
-	"url" : "...",
-	"req_method" : "GET",
-	"req_headers" : "...",
-	"req_body" : "",
-	"res_code" : "200",
-	"res_body" : "...",
-	"__v" : 0
+	"_id" : The object ID,
+	"start" : ISDate of the client request ,
+	"stop" : ISODate of the trarget server response,
+	"error" : A error message if there was an error, e.g. a connection error
+	"url" : the requested URL
+	"req_method" : the request method, e.g. 'GET' or 'POST'
+	"req_headers" : the request headers
+	"req_body" : the request body if any
+	"res_code" : the result code
+	"res_body" : the result body if any
 }
 ```
 
