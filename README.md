@@ -51,12 +51,11 @@ mongo
 > db.entries.find().pretty()
 ````
 
-An log entry contains:
+A log entry comprises:
 
 
 ```
 {
-	"_id" : The object ID,
 	"start" : ISDate of the client request ,
 	"stop" : ISODate of the trarget server response,
 	"error" : A error message if there was an error, e.g. a connection error
