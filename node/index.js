@@ -30,12 +30,12 @@ var EntrySchema = new mongoose.Schema({
         stop: Date,
         error: String,
         url: String,
-        req_method:String,
-        req_headers: String,
+        req_method: String,
+        req_headers: Object,
         req_body: String,
-        res_headers: String,
-        res_body: String,
-        res_code: String
+        res_headers: Object,
+        res_body: Object,
+        res_code: Number
     },
 
     { capped: { max: 1000, size: 200 * 1024 * 1024, autoIndexId: true }
@@ -56,6 +56,14 @@ var server = http.createServer(function (req, res, next) {
     proxy.web(req, res, { target: proxyTarget });
 });
 
+function parse(str) {
+    try {
+        return JSON.parse(str);
+    } catch (e) {
+        return str;
+    }
+}
+
 function log(proxyErr, err, req, res) {
 
     var entry = new Entry({
@@ -63,12 +71,12 @@ function log(proxyErr, err, req, res) {
         stop: req.time_end,
         error: JSON.stringify(err),
         url: req.url,
-        req_method : req.method,
-        req_headers: JSON.stringify(req.headers),
-        req_body: req.fullBody,
-        res_code: JSON.stringify(res.statusCode),
-        res_headers: JSON.stringify(res.headers),
-        res_body: req.resbody
+        req_method: req.method,
+        req_headers: req.headers,
+        req_body: parse(req.fullBody),
+        res_code: res.statusCode,
+        res_headers: res.headers,
+        res_body: parse(req.resbody)
     });
 
     entry.save();
