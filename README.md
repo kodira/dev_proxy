@@ -1,7 +1,7 @@
 dev_proxy
 =========
 
-This is a node.js based HTTP proxy which logs all request to a Mongo DB. Usefull for debugging and testing your REST apps. 
+This is a node.js based Reverse-HTTP proxy which logs all request to a Mongo DB. Usefull for debugging and testing your REST apps. 
 
 
 INSTALL
